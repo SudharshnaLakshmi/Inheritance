@@ -16,38 +16,54 @@ create a function in child class to print a message.
 ## Program:
 ```
 using System;
-namespace EX8
+namespace ex8
+
 {
     public class tyre
     {
         public tyre()
         {
-            Console.Write("Tyre is attached");
+            Console.WriteLine("Base class tyre:");
+        }
+        public virtual void Display()
+        {
+            Console.WriteLine("tyre");
         }
 
     }
-    public class car : tyre
-    {
-        public void display()
-        {
-            Console.Write(" to car\n");
-        }
-    }
     public class scooter : tyre
     {
-        public void display()
+        public scooter()
         {
-            Console.Write(" to scooter\n");
+            Console.WriteLine("for the Scooter");
+        }
+        public override void Display()
+        {
+            base.Display();
+            Console.WriteLine("scooter");
+        }
+    }
+    public class car : tyre
+    {
+        public car()
+        {
+            Console.WriteLine("for the car");
+        }
+        public override void Display()
+        {
+            base.Display();
+            Console.WriteLine("car");
         }
     }
     public class program
     {
-        public static void Main(string[] args)
+        static void Main(string[] args)
         {
             car car = new car();
-            car.display();
             scooter scooter = new scooter();
-            scooter.display();
+            car.Display();
+            scooter.Display();
+
         }
     }
 }
